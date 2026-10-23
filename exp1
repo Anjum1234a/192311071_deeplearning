@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+print("Matrix A:\n", A)
+print("Matrix B:\n", B)
+
+print("Addition:\n", A + B)
+print("Subtraction:\n", A - B)
+print("Element-wise Multiplication:\n", A * B)
+print("Matrix Multiplication:\n", np.dot(A, B))
+print("Transpose of A:\n", A.T)
+print("Determinant of A:", np.linalg.det(A))
+print("Inverse of A:\n", np.linalg.inv(A))
+
+plt.imshow(A, cmap="viridis")
+plt.colorbar()
+plt.title("Matrix A")
+plt.show()
