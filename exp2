@@ -1,0 +1,28 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = {
+    "Maths": [80, 85, 90, 75, 95],
+    "Science": [75, 88, 92, 70, 96],
+    "English": [70, 78, 85, 68, 90]
+}
+
+df = pd.DataFrame(data)
+
+print("Dataset:\n", df)
+
+cov_matrix = df.cov()
+print("\nCovariance Matrix:\n", cov_matrix)
+
+eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
+
+print("\nEigenvalues:\n", eigenvalues)
+print("\nEigenvectors:\n", eigenvectors)
+
+plt.imshow(cov_matrix, cmap="coolwarm")
+plt.colorbar()
+plt.xticks(range(3), df.columns)
+plt.yticks(range(3), df.columns)
+plt.title("Covariance Matrix")
+plt.show()
