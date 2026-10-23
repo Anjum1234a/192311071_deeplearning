@@ -1,0 +1,35 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm, binom
+
+x = np.linspace(-4, 4, 100)
+y = norm.pdf(x, 0, 1)
+
+plt.plot(x, y)
+plt.title("Normal Probability Distribution")
+plt.xlabel("X")
+plt.ylabel("Probability Density")
+plt.show()
+
+n = 10
+p = 0.5
+k = np.arange(0, 11)
+prob = binom.pmf(k, n, p)
+
+plt.bar(k, prob)
+plt.title("Binomial Distribution")
+plt.xlabel("Number of Successes")
+plt.ylabel("Probability")
+plt.show()
+
+# Bayes' Theorem
+P_D = 0.01
+P_Pos_D = 0.95
+P_Pos_notD = 0.05
+
+P_D_Pos = (P_Pos_D * P_D) / (
+    P_Pos_D * P_D + P_Pos_notD * (1 - P_D)
+)
+
+print("Probability using Bayes' Theorem:", P_D_Pos)
+print("Percentage:", P_D_Pos * 100)
